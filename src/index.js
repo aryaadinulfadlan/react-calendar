@@ -1,17 +1,49 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
 import App from './App';
-import reportWebVitals from './reportWebVitals';
+import { CalendarContextProvider } from './Context';
+import { GlobalStyles } from './GlobalStyles';
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <GlobalStyles/>
+    <CalendarContextProvider>
+      <App />
+    </CalendarContextProvider>
   </React.StrictMode>,
   document.getElementById('root')
 );
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
+// const { values, errors, handleChange, handleSubmit } = useForm(formSubmitted)
+// const handleSubmit = e => {
+//   e.preventDefault()
+//   setErrors(validate(values))
+//   setIsSubmitted(true)
+//   if (Object.keys(errors).length === 0 && isSubmitted) {
+//       const newEvent = {
+//           id: selectedEvent ? selectedEvent.id : nanoid(),
+//           title: values.title,
+//           description: values.description,
+//           label: selectedLabel,
+//           day: daySelected.valueOf()
+//       }
+//       if (selectedEvent) {
+//           eventDispatch(updateEventAction(newEvent))
+//       } else {
+//           eventDispatch(addEventAction(newEvent))
+//       }
+//       setValues(defaultValue)
+//       setSelectedLabel(labels[0])
+//       setModal(false)
+//   }
+// }
+
+
+// setNews(currentNews => {
+//     return({
+//         ...currentNews, 
+//         status: status, 
+//         totalResults: totalResults,
+//         articles: [...currentNews.articles, ...articles]
+//     })
+// })
