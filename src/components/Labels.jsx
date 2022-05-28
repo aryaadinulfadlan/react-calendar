@@ -1,20 +1,23 @@
 import React, { useContext } from 'react'
 import styled from 'styled-components'
+import { css } from 'styled-components'
 import { CalendarContext } from '../Context'
 import { SmallFontSize } from '../GlobalStyles'
 
 const LabelContainer = styled.div`
     margin-top: 2rem;
-`
+    `
 const LabelTitle = styled.p`
     font-size: ${SmallFontSize};
     font-weight: bold;
-`
+    `
 const LabelWrap = styled.div`
-    display: grid;
-    column-gap: 3rem;
-    row-gap: 1rem;
-    grid-template-columns: 1fr 1fr;
+    ${({$label}) => $label && css`
+        display: grid;
+        column-gap: 3rem;
+        row-gap: 1rem;
+        grid-template-columns: 1fr 1fr;
+    `}
     margin-top: 1rem;
     width: fit-content;
     p {
@@ -43,7 +46,7 @@ function Labels() {
   return (
     <LabelContainer>
         <LabelTitle>Label List</LabelTitle>
-        <LabelWrap>
+        <LabelWrap $label={labels.length > 0 ? true : false}>
             {
                 labels.length ? labels.map((lbl, idx) => (
                     <Label key={idx}>
