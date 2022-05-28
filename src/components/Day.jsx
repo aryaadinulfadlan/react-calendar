@@ -58,7 +58,7 @@ function Day({day, patokan}) {
   const [ thisDayEvents, setThisDayEvents ] = useState([])
   
   const dayHandleClick = d => {
-    if (eventOnOneMonth.length === 3) {
+    if (eventOnOneMonth.length === 15) {
       modalEventFullToggle()
     } else if (eventOnOneDay.length === 2) {
       modalWarningToggle()

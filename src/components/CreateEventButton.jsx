@@ -38,7 +38,7 @@ function CreateEventButton() {
   const handleClick = () => {
     if (!daySelected) {
       setShow(true)
-    } else if (eventOnOneMonth.length === 3) {
+    } else if (eventOnOneMonth.length === 15) {
       modalEventFullToggle()
     } else if (filteredEvents && filteredEvents.length === 2) {
       modalWarningToggle()
